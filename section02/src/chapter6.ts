@@ -26,7 +26,8 @@ anyVar = () => {};
  * 2. toUpperCase()와 같은 메서드를 사용할 수 없다.
  * 3. 사칙 연산이 불가능하다.
  *
- * 단, 이러한 차이점을 이겨내고 any 타입처럼 할당하고 싶은 경우에는 '타입 정제'를 이용한다.
+ * 단, 이러한 차이점을 이겨내고 any 타입처럼 사용하고 싶은 경우에는 '타입 정제'를 이용한다.
+ * 이때 할당과 연산만 가능하다.
  *
  */
 let unknownVar: unknown;
@@ -38,5 +39,5 @@ unknownVar = () => {};
 // < 타입 정제 하기 >
 if (typeof unknownVar === 'number') {
   num = unknownVar;
-  unknownVar.toUpperCase();
+  num =* 2;
 }
