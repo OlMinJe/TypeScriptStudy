@@ -1,23 +1,5 @@
 {
   "dependencies": {
-    "@types/node": "^20.8.0"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-react": "^7.34.0",
-    "prettier": "^3.2.5"
-  },
-  "name": "section02",
-  "version": "1.0.0",
-  "main": ".eslintrc.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+    "@types/node": "^20.11.24"
+  }
 }
