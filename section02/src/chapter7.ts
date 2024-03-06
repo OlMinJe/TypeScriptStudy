@@ -64,4 +64,4 @@ function func7(): never {
  * (null 값/undefiend 값/any 타입의 값도 담을 수 없다.)
  */
 
-let a: never;
+// let a: never;
