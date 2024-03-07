@@ -69,3 +69,55 @@ function func2(value: number | string | Date | null | Person) {
    *    이 체크를 통해 value가 유효한 객체인지 확인한다.
    */
 }
+
+// --------------------------------------------------------------------------------
+
+/**
+ * 비동기 작업의 결과를 처리하는 객체
+ * - 아래의 코드가 안정적인 구조이다.
+ * - 타입이 안전하게 좁혀지도록 하는 구조.
+ * - 동시에 여러 가지 상태를 표현해야 하는 객체에는 선택적 프로퍼티를 사용하는 것 보다는
+ *   아래의 코드처럼 상태에 따라서 타입을 각각 쪼개서 state나 tag 같은 공통 프로퍼티를 추가하는 것이 좋다.
+ * - 서로소 유니온 타입은 tag를 붙여서 구분할 수 있기 때문에 (taged union type)이라고 부르기도 한다.
+ *
+ */
+type LoadingTask = {
+  state: "LOADING";
+};
+
+type FailedTask = {
+  state: "FAILED";
+  error: {
+    message: "오류 발생 원인";
+  };
+};
+
+type SuccessTask = {
+  state: "SUCCESS";
+  response: {
+    data: "성공 데이터";
+  };
+};
+
+type AsyncTask = LoadingTask | FailedTask | SuccessTask;
+
+function processResult(task: AsyncTask) {
+  switch (task.state) {
+    case "LOADING":
+      console.log("로딩 중");
+      break;
+    case "FAILED":
+      console.log(`에러 발생 ${task.error.message}`);
+      break;
+    case "SUCCESS":
+      console.log(`성공: ${task.response.data}`);
+      break;
+  }
+}
+
+// const success: AsyncTask = {
+//   state: "SUCCESS",
+//   response: {
+//     data: "성공 데이터",
+//   },
+// };
