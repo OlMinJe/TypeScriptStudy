@@ -14,6 +14,7 @@ function swap02<T, U>(a: T, b: U) {
   return [b, a];
 }
 
+const [a2, b2] = swap02("1", 2);
 
 // 2-1. 타입이 배열인 경우
 function returnFirstValue<T>(data: T[]) {
